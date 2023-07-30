@@ -12,6 +12,7 @@
 }
 .display {
   display: flex;
+  flex-direction: row;
 }
 .displayOne {
   flex: 1;
@@ -20,12 +21,11 @@
   padding: 5px;
 }
 .displayTwo {
-  flex: 1;
   background-color: rgb(0, 0, 0, 0.54);
-  position: relative;
-  right: -100px;
+  order: 1;
   border: 1px;
   border-radius: 10px;
+  padding: 10px;
 }
 .content {
   text-align: center;
