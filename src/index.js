@@ -1,3 +1,34 @@
+function formatDate(timeStamp) {
+  let date = new Date();
+  console.log(date);
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Friday"];
+  let day = days[date.getDay()];
+  let hour = date.getHours();
+
+  function greetUser() {
+    let greeting = ("Good Morning", "Good Afternoon", "Good Evening");
+    if (hour < 12) {
+      return "Good Morning!";
+    } else if (hour >= 12 && hour <= 18) {
+      return "Good Afternoon!";
+    } else {
+      return "Good Evening!";
+    }
+  }
+  console.log(greetUser);
+  let greeting = document.querySelector("#greet");
+  greeting.innerHTML = greetUser();
+
+  if (hour < 10) {
+    hour = "0" + hour;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = "0" + minutes;
+  }
+
+  return `Last updated: ${day}, ${hour}:${minutes}`;
+}
 function getWeather(response) {
   console.log(response);
   let city = document.querySelector("#city");
@@ -14,6 +45,8 @@ function getWeather(response) {
   let pressure = document.querySelector("#pressure");
   pressure.innerHTML =
     "Pressure:" + " " + response.data.temperature.pressure + "Pa";
+  let day = document.querySelector("#date");
+  day.innerHTML = formatDate(response.data.time * 1000);
 }
 
 let apiKey = "e0t7f950c7oaba3945b7deeaff3001ac";
