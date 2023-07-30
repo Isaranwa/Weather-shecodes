@@ -15,7 +15,7 @@ function formatDate(timeStamp) {
       return "Good Evening!";
     }
   }
-  console.log(greetUser);
+
   let greeting = document.querySelector("#greet");
   greeting.innerHTML = greetUser();
 
@@ -30,7 +30,6 @@ function formatDate(timeStamp) {
   return `Last updated: ${day}, ${hour}:${minutes}`;
 }
 function getWeather(response) {
-  console.log(response);
   let city = document.querySelector("#city");
   city.innerHTML = response.data.city;
   let temperatureCelsius = document.querySelector("#temperature");
@@ -47,6 +46,12 @@ function getWeather(response) {
     "Pressure:" + " " + response.data.temperature.pressure + "Pa";
   let day = document.querySelector("#date");
   day.innerHTML = formatDate(response.data.time * 1000);
+  let icon = document.querySelector("#icon");
+  icon.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+  );
+  icon.setAttribute("alt", response.data.condition.icon);
 }
 
 let apiKey = "e0t7f950c7oaba3945b7deeaff3001ac";
