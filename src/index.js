@@ -29,13 +29,30 @@ function formatDate(timeStamp) {
 
   return `Last updated: ${day}, ${hour}:${minutes}`;
 }
-function weatherForecast(forecast) {
-  console.log(forecast);
+
+function daysForecast(response) {
+  console.log(response.data.daily);
+  let forecast = document.querySelector("#forecast");
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri"];
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
+              <h5 id="one">${day}</h5>
+              <img src="#" alt="cloud image" />
+              <p>18° <span class="minTemp">22°</span></p>
+            </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+
+  forecast.innerHTML = forecastHTML;
 }
+
 function getForecast(coordinates) {
   let apiKey = "e0t7f950c7oaba3945b7deeaff3001ac";
   let backEnd = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}`;
-  axios.get(backEnd).then(weatherForecast);
+  axios.get(backEnd).then(daysForecast);
 }
 function getWeather(response) {
   let city = document.querySelector("#city");
@@ -97,22 +114,3 @@ function displayInCelcius(event) {
 }
 let celcius = document.querySelector("#celcius");
 celcius.addEventListener("click", displayInCelcius);
-
-function daysForecast() {
-  let forecast = document.querySelector("#forecast");
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri"];
-  let forecastHTML = `<div class="row">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-2">
-              <h5 id="one">${day}</h5>
-              <img src="#" alt="cloud image" />
-              <p>18° <span class="minTemp">22°</span></p>
-            </div>`;
-  });
-  forecastHTML = forecastHTML + `</div>`;
-
-  forecast.innerHTML = forecastHTML;
-}
-daysForecast();
