@@ -1,6 +1,5 @@
 function formatDate(timeStamp) {
   let date = new Date();
-  console.log(date);
   let days = ["Sunday", "Monday", "Tuesday", "Thursday", "Wednesday", "Friday"];
   let day = days[date.getDay()];
   let hour = date.getHours();
@@ -38,7 +37,6 @@ function formatDay(timestamp) {
 }
 
 function daysForecast(response) {
-  console.log(response.data.daily);
   let forecast = document.querySelector("#forecast");
   let daysForecast = response.data.daily;
   let forecastHTML = `<div class="row">`;
@@ -51,7 +49,7 @@ function daysForecast(response) {
               <img src="${forecastDay.condition.icon_url}" alt="${
           forecastDay.condition.icon
         }" />
-              <p><span class="minTemp">${Math.round(
+              <p><span class="maxTemp">${Math.round(
                 forecastDay.temperature.maximum
               )}</span> <span class="minTemp">${Math.round(
           forecastDay.temperature.minimum
@@ -64,12 +62,13 @@ function daysForecast(response) {
 
   forecast.innerHTML = forecastHTML;
 }
-
+//use coordinates to ge the weather forecast for city
 function getForecast(coordinates) {
   let apiKey = "e0t7f950c7oaba3945b7deeaff3001ac";
   let backEnd = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}`;
   axios.get(backEnd).then(daysForecast);
 }
+//Display of the weather app
 function getWeather(response) {
   let city = document.querySelector("#city");
   let temperatureCelsius = document.querySelector("#temperature");

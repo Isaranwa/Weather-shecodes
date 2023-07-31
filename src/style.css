@@ -44,7 +44,11 @@
 .degrees {
   font-size: 16px;
   position: relative;
-  top: -10px;
+  top: -15px;
+}
+.minTemp {
+  opacity: 0.8;
+  color: #000;
 }
 
 #city {
@@ -62,12 +66,6 @@ body {
   color: #fff;
 }
 h5,
-.minTemp,
-.displayTwoss {
-  opacity: 0.8;
-  color: #000;
-}
-
 li {
   list-style-type: none;
 }
