@@ -56,7 +56,6 @@ function formatDay(timestamp) {
 }
 
 function daysForecast(response) {
-  console.log(response);
   let forecast = document.querySelector("#forecast");
   let daysForecast = response.data.daily;
   let forecastHTML = `<div class="row">`;
@@ -90,7 +89,6 @@ function getForecast(coordinates) {
 }
 //Display of the weather app
 function getWeather(response) {
-  console.log(response.data.condition);
   let city = document.querySelector("#city");
   let temperatureCelsius = document.querySelector("#temperature");
   let description = document.querySelector("#description");
