@@ -29,6 +29,14 @@ function formatDate(timeStamp) {
 
   return `Last updated: ${day}, ${hour}:${minutes}`;
 }
+function weatherForecast(forecast) {
+  console.log(forecast);
+}
+function getForecast(coordinates) {
+  let apiKey = "e0t7f950c7oaba3945b7deeaff3001ac";
+  let backEnd = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}`;
+  axios.get(backEnd).then(weatherForecast);
+}
 function getWeather(response) {
   let city = document.querySelector("#city");
   let temperatureCelsius = document.querySelector("#temperature");
@@ -54,6 +62,7 @@ function getWeather(response) {
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
   icon.setAttribute("alt", response.data.condition.icon);
+  getForecast(response.data.coordinates);
 }
 function getCity(city) {
   let apiKey = "e0t7f950c7oaba3945b7deeaff3001ac";
@@ -91,7 +100,7 @@ celcius.addEventListener("click", displayInCelcius);
 
 function daysForecast() {
   let forecast = document.querySelector("#forecast");
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri"];
   let forecastHTML = `<div class="row">`;
   days.forEach(function (day) {
     forecastHTML =

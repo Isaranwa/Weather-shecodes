@@ -64,7 +64,8 @@ body {
 h5,
 .minTemp,
 .displayTwoss {
-  opacity: 0.6;
+  opacity: 0.8;
+  color: #000;
 }
 
 li {
