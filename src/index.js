@@ -30,25 +30,25 @@ function formatDate(timeStamp) {
   return `Last updated: ${day}, ${hour}:${minutes}`;
 }
 function getWeather(response) {
-  console.log(response);
-  celciusTemperature = response.data.temperature.current;
   let city = document.querySelector("#city");
-  city.innerHTML = response.data.city;
   let temperatureCelsius = document.querySelector("#temperature");
-  temperatureCelsius.innerHTML = Math.round(celciusTemperature);
   let description = document.querySelector("#description");
-  description.innerHTML = response.data.condition.description;
   let humidity = document.querySelector("#humidity");
+  let wind = document.querySelector("#wind");
+  let pressure = document.querySelector("#pressure");
+  let day = document.querySelector("#date");
+  let icon = document.querySelector("#icon");
+  description.innerHTML = response.data.condition.description;
+  celciusTemperature = response.data.temperature.current;
+  city.innerHTML = response.data.city;
+  temperatureCelsius.innerHTML = Math.round(celciusTemperature);
   humidity.innerHTML =
     "Humidity:" + " " + response.data.temperature.humidity + "%rh";
-  let wind = document.querySelector("#wind");
   wind.innerHTML = "Wind:" + " " + response.data.wind.speed + "Km/hr";
-  let pressure = document.querySelector("#pressure");
   pressure.innerHTML =
     "Pressure:" + " " + response.data.temperature.pressure + "Pa";
-  let day = document.querySelector("#date");
   day.innerHTML = formatDate(response.data.time * 1000);
-  let icon = document.querySelector("#icon");
+
   icon.setAttribute(
     "src",
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
