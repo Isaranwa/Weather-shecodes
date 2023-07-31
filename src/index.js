@@ -31,10 +31,11 @@ function formatDate(timeStamp) {
 }
 function getWeather(response) {
   console.log(response);
+  celciusTemperature = response.data.temperature.current;
   let city = document.querySelector("#city");
   city.innerHTML = response.data.city;
   let temperatureCelsius = document.querySelector("#temperature");
-  temperatureCelsius.innerHTML = Math.round(response.data.temperature.current);
+  temperatureCelsius.innerHTML = Math.round(celciusTemperature);
   let description = document.querySelector("#description");
   description.innerHTML = response.data.condition.description;
   let humidity = document.querySelector("#humidity");
@@ -67,3 +68,21 @@ function handleSubmit(event) {
 }
 let form = document.querySelector("#form-search");
 form.addEventListener("submit", handleSubmit);
+
+function displayInFarenheit(event) {
+  event.preventDefault();
+  let farenheitTemp = Math.round((celciusTemperature * 9) / 5 + 32);
+  let temperature = document.querySelector("#temperature");
+  temperature.innerHTML = farenheitTemp;
+}
+let celciusTemperature = null;
+let farenheit = document.querySelector("#farenheit");
+farenheit.addEventListener("click", displayInFarenheit);
+
+function displayInCelcius(event) {
+  event.preventDefault();
+  let celciusTemp = document.querySelector("#temperature");
+  celciusTemp.innerHTML = Math.round(celciusTemperature);
+}
+let celcius = document.querySelector("#celcius");
+celcius.addEventListener("click", displayInCelcius);
