@@ -88,3 +88,22 @@ function displayInCelcius(event) {
 }
 let celcius = document.querySelector("#celcius");
 celcius.addEventListener("click", displayInCelcius);
+
+function daysForecast() {
+  let forecast = document.querySelector("#forecast");
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
+              <h5 id="one">${day}</h5>
+              <img src="#" alt="cloud image" />
+              <p>18° <span class="minTemp">22°</span></p>
+            </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+
+  forecast.innerHTML = forecastHTML;
+}
+daysForecast();

@@ -56,17 +56,6 @@
   color: #fff;
   cursor: default;
 }
-#one,
-#two,
-#three,
-#four,
-#five,
-#six {
-  background-color: rgb(0, 0, 0, 0.54);
-  border: 1px;
-  border-radius: 10px;
-  margin: 10px 5px;
-}
 
 body {
   background-image: url(https://images.pexels.com/photos/2440299/pexels-photo-2440299.jpeg?auto=compress&cs=tinysrgb&w=800);
@@ -74,9 +63,10 @@ body {
 }
 h5,
 .minTemp,
-.displayTwo {
+.displayTwoss {
   opacity: 0.6;
 }
+
 li {
   list-style-type: none;
 }
