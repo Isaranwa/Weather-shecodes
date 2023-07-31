@@ -16,13 +16,16 @@
   <body>
     <div class="container">
       <div class="weather-app">
-        <form class="form">
+        <form id="form-search">
           <div class="row">
             <div class="col-9">
               <input
                 type="search"
                 class="form-control"
+                id="search"
                 placeholder="Search city.."
+                autocomplete="off"
+                autofocus="on"
               />
             </div>
             <div class="col-3">
@@ -31,11 +34,12 @@
           </div>
         </form>
         <h1 id="city"></h1>
-        <img src="" id="icon" alt="" />
+
         <h3 id="greet"></h3>
         <h2>
-          <span id="temperature"></span
-          ><span class="degrees">°C|<a href="#">°F</a></span>
+          <img src="" id="icon" alt="" /> <span id="temperature"></span
+          ><span class="degrees">°C|<a href="#">°F</a></span
+          ><img src="" id="icon" alt="" />
         </h2>
         <div class="display">
           <div class="row">

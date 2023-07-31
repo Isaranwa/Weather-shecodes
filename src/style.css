@@ -46,6 +46,9 @@
   position: relative;
   top: -10px;
 }
+#city {
+  text-transform: capitalize;
+}
 body {
   background-image: url(https://images.pexels.com/photos/2440299/pexels-photo-2440299.jpeg?auto=compress&cs=tinysrgb&w=800);
   color: #fff;
