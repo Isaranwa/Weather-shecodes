@@ -56,19 +56,6 @@
   color: #fff;
   cursor: default;
 }
-
-body {
-  background-image: url(https://images.pexels.com/photos/2440299/pexels-photo-2440299.jpeg?auto=compress&cs=tinysrgb&w=800);
-  color: #fff;
-}
-li {
-  list-style-type: none;
-}
-h2 {
-  margin-bottom: 0;
-}
-img {
-}
 #one,
 #two,
 #three,
@@ -79,4 +66,22 @@ img {
   border: 1px;
   border-radius: 10px;
   margin: 10px 5px;
+}
+
+body {
+  background-image: url(https://images.pexels.com/photos/2440299/pexels-photo-2440299.jpeg?auto=compress&cs=tinysrgb&w=800);
+  color: #fff;
+}
+h5,
+.minTemp,
+.displayTwo {
+  opacity: 0.6;
+}
+li {
+  list-style-type: none;
+}
+h2 {
+  margin-bottom: 0;
+}
+img {
 }
