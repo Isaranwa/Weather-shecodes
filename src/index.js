@@ -68,6 +68,8 @@ function handleSubmit(event) {
 }
 let form = document.querySelector("#form-search");
 form.addEventListener("submit", handleSubmit);
+getCity("New York");
+let city = "New york";
 
 function displayInFarenheit(event) {
   event.preventDefault();

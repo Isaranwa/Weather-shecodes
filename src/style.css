@@ -24,7 +24,7 @@
   right: -100px;
   border: 1px;
   border-radius: 10px;
-  max-width: 50%;
+  position: relative;
   width: 50%;
 }
 .content {
@@ -46,9 +46,17 @@
   position: relative;
   top: -10px;
 }
+
 #city {
   text-transform: capitalize;
 }
+#farenheit,
+#celcius {
+  text-decoration: none;
+  color: #fff;
+  cursor: default;
+}
+
 body {
   background-image: url(https://images.pexels.com/photos/2440299/pexels-photo-2440299.jpeg?auto=compress&cs=tinysrgb&w=800);
   color: #fff;
@@ -59,8 +67,16 @@ li {
 h2 {
   margin-bottom: 0;
 }
-a {
-  text-decoration: none;
-  color: #fff;
-  cursor: default;
+img {
+}
+#one,
+#two,
+#three,
+#four,
+#five,
+#six {
+  background-color: rgb(0, 0, 0, 0.54);
+  border: 1px;
+  border-radius: 10px;
+  margin: 10px 5px;
 }
