@@ -50,6 +50,23 @@
   opacity: 0.8;
   color: #000;
 }
+.maxTemp {
+  font-size: 15px;
+  font-weight: 700;
+}
+#border {
+  background-color: rgb(0, 0, 0, 0.54);
+  border-radius: 10px;
+  border: 1px;
+  margin: 10px auto;
+  transition: all 200ms ease-in-out;
+  cursor: pointer;
+}
+#border:hover {
+  box-shadow: inset rgba(39, 40, 42, 0.5) 0 0 1em;
+  background-color: rgb(255, 238, 170);
+  color: #000;
+}
 
 #city {
   text-transform: capitalize;
