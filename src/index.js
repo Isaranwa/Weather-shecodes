@@ -1,7 +1,7 @@
 function formatDate(timeStamp) {
   let date = new Date();
   console.log(date);
-  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Friday"];
+  let days = ["Sunday", "Monday", "Tuesday", "Thursday", "Wednesday", "Friday"];
   let day = days[date.getDay()];
   let hour = date.getHours();
 
@@ -30,20 +30,36 @@ function formatDate(timeStamp) {
   return `Last updated: ${day}, ${hour}:${minutes}`;
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+  let day = days[date.getDay()];
+  return day;
+}
+
 function daysForecast(response) {
   console.log(response.data.daily);
   let forecast = document.querySelector("#forecast");
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri"];
+  let daysForecast = response.data.daily;
   let forecastHTML = `<div class="row">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-2">
-              <h5 id="one">${day}</h5>
-              <img src="#" alt="cloud image" />
-              <p>18° <span class="minTemp">22°</span></p>
+  daysForecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2">
+              <h5 id="one">${formatDay(forecastDay.time)}</h5>
+              <img src="${forecastDay.condition.icon_url}" alt="${
+          forecastDay.condition.icon
+        }" />
+              <p><span class="minTemp">${Math.round(
+                forecastDay.temperature.maximum
+              )}</span> <span class="minTemp">${Math.round(
+          forecastDay.temperature.minimum
+        )}</span></p>
             </div>`;
+    }
   });
+
   forecastHTML = forecastHTML + `</div>`;
 
   forecast.innerHTML = forecastHTML;
