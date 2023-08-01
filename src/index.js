@@ -14,25 +14,6 @@ function formatDate(timeStamp) {
       return "Good Evening!";
     }
   }
-  //changing background according to the weather
-  function changeBackground() {
-    let greeting = ("Good Morning", "Good Afternoon", "Good Evening");
-    if (greeting === "Good Morning") {
-      return (document.body.style.backgroundImage =
-        "url(https://www.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_11342065.htm#query=beautiful%20sunrise&position=0&from_view=keyword&track=ais)");
-    } else if (greeting === "Good Afternoon") {
-      return (document.body.style.backgroundImage =
-        "url(https://www.freepik.com/free-photo/seoraksan-mountains-is-covered-by-morning-fog-sunrise-seoul-korea_11306427.htm#query=beautiful%20afternoon&position=20&from_view=search&track=ais)");
-    } else if (greeting === "Good Evening") {
-      return (document.body.style.backgroundImage =
-        "url(https://img.freepik.com/free-vector/palm-trees-against-sunset-sky_1048-7507.jpg?size=626&ext=jpg&ga=GA1.2.604235139.1687435261&semt=ais)");
-    } else {
-      document.body.style.backgroundImage =
-        "url(https://images.pexels.com/photos/2440299/pexels-photo-2440299.jpeg?auto=compress&cs=tinysrgb&w=600)";
-    }
-  }
-  let body = document.querySelector("body");
-  document.body.style.backgroungdImage = changeBackground();
 
   let greeting = document.querySelector("#greet");
   greeting.innerHTML = greetUser();
@@ -60,7 +41,7 @@ function daysForecast(response) {
   let daysForecast = response.data.daily;
   let forecastHTML = `<div class="row">`;
   daysForecast.forEach(function (forecastDay, index) {
-    if (index < 5) {
+    if (index < 6) {
       forecastHTML =
         forecastHTML +
         `<div class="col-2" id="border">
